@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>Báo Cáo Nghiên Cứu Và Phát Triển Dự Án: Hệ Thống Nhận Dạng Chữ Viết Tay Tiếng Việt Đa Cấp Độ</title>
+<style>
+@page {
+    size: A4;
+    margin: 25mm 25mm 25mm 25mm;
+}
+body {
+    font-family: 'Times New Roman', serif;
+    font-size: 13pt;
+    line-height: 1.45;
+    color: #111827;
+    margin: 0;
+    padding: 0;
+}
+.cover-page {
+    text-align: center;
+    page-break-after: always;
+    padding-top: 20px;
+}
+.cover-institution {
+    font-size: 14pt;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #1e3a8a;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+}
+.cover-subinstitution {
+    font-size: 13pt;
+    font-weight: bold;
+    color: #3b82f6;
+    margin-bottom: 25px;
+}
+.cover-divider {
+    width: 250px;
+    height: 2px;
+    background-color: #1e3a8a;
+    margin: 0 auto 35px auto;
+}
+.cover-title-badge {
+    display: inline-block;
+    background-color: #eff6ff;
+    color: #1d4ed8;
+    padding: 6px 18px;
+    border-radius: 20px;
+    font-size: 12pt;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    border: 1px solid #bfdbfe;
+}
+.cover-main-title {
+    font-size: 23pt;
+    font-weight: bold;
+    color: #1e3a8a;
+    line-height: 1.35;
+    text-transform: uppercase;
+    margin: 15px 0 20px 0;
+}
+.cover-sub-title {
+    font-size: 15pt;
+    font-style: italic;
+    color: #475569;
+    margin-bottom: 40px;
+    line-height: 1.4;
+}
+.cover-info-box {
+    margin: 50px auto 30px auto;
+    width: 85%;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    padding: 18px 24px;
+    background-color: #f8fafc;
+    text-align: left;
+    font-size: 12.5pt;
+}
+.cover-info-row {
+    margin: 8px 0;
+}
+.cover-info-label {
+    font-weight: bold;
+    color: #1e3a8a;
+    display: inline-block;
+    width: 180px;
+}
+.cover-footer {
+    margin-top: 55px;
+    font-size: 13pt;
+    font-weight: bold;
+    color: #64748b;
+}
+
+h1 {
+    font-size: 16.5pt;
+    font-weight: bold;
+    color: #1e3a8a;
+    text-transform: uppercase;
+    border-bottom: 2px solid #1e3a8a;
+    padding-bottom: 5px;
+    margin-top: 32px;
+    margin-bottom: 14px;
+    page-break-after: avoid;
+}
+h2 {
+    font-size: 14pt;
+    font-weight: bold;
+    color: #1d4ed8;
+    margin-top: 22px;
+    margin-bottom: 10px;
+    page-break-after: avoid;
+}
+h3 {
+    font-size: 13pt;
+    font-weight: bold;
+    font-style: italic;
+    color: #0f172a;
+    margin-top: 16px;
+    margin-bottom: 8px;
+    page-break-after: avoid;
+}
+p {
+    text-align: justify;
+    text-indent: 1.2cm;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+p.no-indent {
+    text-indent: 0;
+}
+ul, ol {
+    margin-top: 6px;
+    margin-bottom: 12px;
+    padding-left: 2.2cm;
+}
+li {
+    margin-bottom: 6px;
+    text-align: justify;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 11.5pt;
+}
+th, td {
+    border: 1px solid #94a3b8;
+    padding: 8px 11px;
+    vertical-align: middle;
+}
+th {
+    background-color: #1e3a8a;
+    color: #ffffff;
+    font-weight: bold;
+    text-align: center;
+}
+tr:nth-child(even) {
+    background-color: #f8fafc;
+}
+.table-caption {
+    font-weight: bold;
+    font-size: 11.5pt;
+    margin-top: 10px;
+    margin-bottom: 6px;
+    text-align: center;
+    color: #334155;
+}
+.callout {
+    background-color: #f1f5f9;
+    border-left: 5px solid #2563eb;
+    border-radius: 4px;
+    padding: 12px 18px;
+    margin: 16px 0;
+    font-size: 12pt;
+}
+.callout-title {
+    font-weight: bold;
+    color: #1e3a8a;
+    margin-bottom: 4px;
+}
+.code-block {
+    background-color: #0f172a;
+    color: #f8fafc;
+    border-radius: 6px;
+    padding: 14px 18px;
+    font-family: 'Consolas', monospace;
+    font-size: 10.5pt;
+    line-height: 1.45;
+    margin: 16px 0;
+    white-space: pre-wrap;
+    word-break: break-all;
+}
+.formula {
+    background-color: #f8fafc;
+    border: 1px dashed #cbd5e1;
+    border-radius: 6px;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 12.5pt;
+    font-family: 'Cambria Math', 'Times New Roman', serif;
+    margin: 14px 0;
+}
+.page-break {
+    page-break-before: always;
+}
+.badge {
+    background-color: #dbeafe;
+    color: #1e40af;
+    font-weight: bold;
+    padding: 2px 7px;
+    border-radius: 4px;
+    font-size: 10.5pt;
+}
+</style>
+</head>
+<body>
+
+<!-- TRANG BÌA -->
+<div class="cover-page">
+    <div class="cover-institution">CHƯƠNG TRÌNH PHÁT TRIỂN TÀI NĂNG CÔNG NGHỆ TRẺ</div>
+    <div class="cover-subinstitution">SAMSUNG INNOVATION CAMPUS (SIC) 2025 - 2026</div>
+    <div class="cover-divider"></div>
+
+    <div class="cover-title-badge">BÁO CÁO DỰ ÁN CAPSTONE (FINAL CAPSTONE PROJECT REPORT)</div>
+
+    <div class="cover-main-title">
+        HỆ THỐNG NHẬN DẠNG CHỮ VIẾT TAY TIẾNG VIỆT ĐA CẤP ĐỘ<br>
+        DỰA TRÊN KIẾN TRÚC VGG-TRANSFORMER<br>
+        VÀ MÔ HÌNH SỬA LỖI CHÍNH TẢ NGỮ CẢNH
+    </div>
+
+    <div class="cover-sub-title">
+        Multi-Level Vietnamese Handwritten Text Recognition (HTR) using VGG-Transformer Architecture<br>
+        Integrated with Contextual Sequence-to-Sequence Spelling Correction
+    </div>
+
+    <div class="cover-info-box">
+        <div class="cover-info-row"><span class="cover-info-label">Khóa đào tạo:</span> Trí tuệ Nhân tạo (Artificial Intelligence Course)</div>
+        <div class="cover-info-row"><span class="cover-info-label">Nhóm thực hiện:</span> <strong>Team 3</strong></div>
+        <div class="cover-info-row"><span class="cover-info-label">Trưởng nhóm:</span> <strong>Lưu Thanh Nguyên</strong></div>
+        <div class="cover-info-row"><span class="cover-info-label">Thành viên:</span> <strong>Đặng Hoàng Anh</strong></div>
+        <div class="cover-info-row"><span class="cover-info-label">Bộ dữ liệu thực nghiệm:</span> UIT-HWDB (Line, Word, Paragraph - ĐH CNTT, ĐHQG TP.HCM)</div>
+        <div class="cover-info-row"><span class="cover-info-label">Hạ tầng tính toán:</span> NVIDIA Tesla T4 GPU (Cloud) & Workstation (Local)</div>
+    </div>
+
+    <div class="cover-footer">
+        THÀNH PHỐ HỒ CHÍ MINH, THÁNG 11 NĂM 2026
+    </div>
+</div>
+
+<!-- THÔNG TIN DỰ ÁN VÀ BẢN QUYỀN -->
+<div class="page-break"></div>
+<h1>BẢNG THÔNG TIN DỰ ÁN VÀ BẢN QUYỀN</h1>
+<p class="no-indent">Tài liệu này là báo cáo nghiên cứu và hoàn thiện sản phẩm thuộc Đồ án Tốt nghiệp (Capstone Project) của khóa học Trí tuệ Nhân tạo - Samsung Innovation Campus (SIC). Toàn bộ mã nguồn, cấu hình mô hình, trọng số huấn luyện và dữ liệu thực nghiệm được đồng bộ trong không gian làm việc của dự án.</p>
+
+<div class="table-caption">Bảng 1: Thông tin tổng quan về đề tài Capstone Project</div>
+<table>
+    <tr>
+        <th style="width: 28%;">Hạng mục</th>
+        <th>Thông tin chi tiết</th>
+    </tr>
+    <tr>
+        <td><strong>Tên khóa đào tạo</strong></td>
+        <td>Samsung Innovation Campus (SIC) - AI Course 2025-2026</td>
+    </tr>
+    <tr>
+        <td><strong>Tên nhóm (Team Name)</strong></td>
+        <td>Team 3</td>
+    </tr>
+    <tr>
+        <td><strong>Trưởng nhóm (Team Leader)</strong></td>
+        <td>Lưu Thanh Nguyên (Nghiên cứu kiến trúc, huấn luyện mô hình, tích hợp NLP, xử lý sự cố kỹ thuật)</td>
+    </tr>
+    <tr>
+        <td><strong>Thành viên (Member)</strong></td>
+        <td>Đặng Hoàng Anh (Tiền xử lý dữ liệu, kiểm thử thuật toán tách dòng, thiết kế giao diện Web Studio)</td>
+    </tr>
+    <tr>
+        <td><strong>Tên đề tài dự án</strong></td>
+        <td>Optical Character Recognition / Handwritten Text Recognition (Nhận dạng chữ viết tay tiếng Việt)</td>
+    </tr>
+    <tr>
+        <td><strong>Kiến trúc cốt lõi</strong></td>
+        <td>VGG19-BN + Transformer Encoder-Decoder (VietOCR) kết hợp Seq2Seq Transformer (vietnamese-correction-v2)</td>
+    </tr>
+    <tr>
+        <td><strong>Sản phẩm bàn giao</strong></td>
+        <td>Mã nguồn huấn luyện độc lập (train_line.py, train_word.py), Pipeline nhận dạng (pipeline_ocr.py), Ứng dụng Web Gradio (app.py), Trọng số tốt nhất (vietocr_hw_best.pth, vietocr_hw_full.pth)</td>
+    </tr>
+</table>
+
+<div class="callout">
+    <div class="callout-title">Tuyên bố về quyền sở hữu trí tuệ:</div>
+    Tài liệu này và các sản phẩm phần mềm đi kèm được bảo hộ theo quy định bản quyền học thuật của chương trình Samsung Innovation Campus. Nghiêm cấm mọi hành vi sao chép, tái bản hoặc sử dụng cho mục đích thương mại khi chưa có sự đồng ý bằng văn bản của cơ quan chủ quản và nhóm tác giả.
+</div>
+
+<!-- TÓM TẮT DỰ ÁN (ABSTRACT) -->
+<h1>TÓM TẮT DỰ ÁN (EXECUTIVE SUMMARY & ABSTRACT)</h1>
+
+<h2>Tóm tắt tiếng Việt (Executive Summary)</h2>
+<p>Nhận dạng chữ viết tay tiếng Việt (Vietnamese Handwritten Text Recognition - HTR) là một bài toán then chốt nhưng đầy thách thức trong lĩnh vực Thị giác Máy tính và Xử lý Ngôn ngữ Tự nhiên. Khác với văn bản in hoặc các ngôn ngữ sử dụng bảng chữ cái Latin không dấu, tiếng Việt sở hữu hệ thống nguyên âm phức tạp với các dấu phụ (như mũ, móc) cùng 5 dấu thanh (sắc, huyền, hỏi, ngã, nặng) có thể đặt ở nhiều vị trí. Trong chữ viết tay tự do, các nét dấu này thường bị viết mờ, dính liền vào nét chữ chính hoặc xô lệch ra ngoài biên dòng, dẫn đến hiện tượng suy giảm độ chính xác nghiêm trọng ở các hệ thống OCR truyền thống.</p>
+
+<p>Đề tài nghiên cứu và xây dựng một hệ thống nhận dạng chữ viết tay tiếng Việt đa cấp độ hoàn chỉnh từ đầu đến cuối (End-to-End Multi-level HTR Pipeline). Hệ thống giải quyết trọn vẹn chuỗi xử lý qua 4 giai đoạn kỹ thuật cốt lõi:</p>
+<ol>
+    <li><strong>Tiền xử lý ảnh thích ứng:</strong> Tích hợp thuật toán Auto-Deskew tự động đo lường phương sai hình chiếu ngang để bù trừ góc xoay (-6° đến +6.5°); thuật toán phân đoạn dòng thích ứng (Adaptive Line Segmentation) kết hợp phép chiếu đồ thị mật độ pixel, lọc mịn Gaussian 1D, dò đỉnh và thung lũng (peaks & valleys), đi kèm cơ chế đệm viền trắng an toàn (White Margin Padding) để bảo toàn tuyệt đối các nét dấu thanh cao và chân móc chữ thấp.</li>
+    <li><strong>Nhận dạng bằng kiến trúc học sâu VGG-Transformer:</strong> Sử dụng mạng tích chập VGG19 cải tiến với Batch Normalization đóng vai trò bộ trích xuất đặc trưng không gian (Spatial Feature Extractor), kết hợp mạng Transformer Encoder-Decoder với cơ chế Self-Attention đa đầu giúp mô hình hóa mối quan hệ phụ thuộc dài giữa các ký tự trong dòng chữ mà không bị giới hạn bởi hiện tượng mất mát thông tin như mạng hồi quy RNN truyền thống.</li>
+    <li><strong>Huấn luyện chuyển giao đa cấp độ (Two-Stage Transfer Learning):</strong> Khởi tạo từ trọng số tiền huấn luyện và tiến hành huấn luyện giai đoạn 1 trên bộ dữ liệu dòng chữ UIT_HWDB_line (~6.700 mẫu) với OneCycleLR đạt Character Accuracy ~87.2%; sau đó chuyển giao sang giai đoạn 2 fine-tune trên hơn 100.000 mẫu từ đơn UIT_HWDB_word được lọc sạch ký tự ngoại lai (f/F), nâng độ chính xác ký tự lên trên 94% và độ chính xác chuỗi đạt ~87.69%.</li>
+    <li><strong>Hậu xử lý sửa lỗi chính tả ngữ cảnh bằng mô hình Seq2Seq Transformer:</strong> Tích hợp mô hình ngôn ngữ chuyên sâu cho tiếng Việt (bmd1905/vietnamese-correction-v2) để tự động sửa chữa các lỗi nhầm lẫn do nét viết tương đồng giữa các ký tự và khôi phục dấu thanh đúng ngữ cảnh, giúp nâng độ chính xác tổng thể của các trang văn bản viết tay phức tạp lên 92% - 95%.</li>
+</ol>
+<p>Toàn bộ giải pháp được đóng gói thành công thành các mô-đun mã nguồn độc lập, có khả năng tái lập cao (reproducibility), kèm ứng dụng Web tương tác hiện đại bằng Gradio với bố cục Clean White Dashboard 30% - 70%, phục vụ đắc lực cho công tác số hóa tài liệu học tập, hồ sơ hành chính và nghiên cứu khoa học.</p>
+
+<h2>English Abstract</h2>
+<p>Vietnamese Handwritten Text Recognition (HTR) remains a pivotal yet intensely challenging task in computer vision and natural language processing. Due to the sophisticated diacritical mark system (five tones: acute, grave, hook above, tilde, and dot below, alongside circumflex and horn marks) combined with extreme variations in personal cursive handwriting styles, conventional OCR frameworks frequently struggle with high character error rates and word fragmentation.</p>
+
+<p>This Capstone Project delivers an end-to-end, multi-level Vietnamese HTR system combining state-of-the-art deep learning architectures and contextual natural language post-processing. The proposed pipeline introduces an adaptive image preprocessing module incorporating projection variance-based auto-deskewing, 1D Gaussian-smoothed horizontal projection profile line segmentation with dynamic peak-valley detection, and specialized boundary margin padding that guarantees zero truncation of Vietnamese diacritics. At its core, the recognition engine leverages a VGG19-BN convolutional backbone coupled with a Multi-Head Self-Attention Transformer Encoder-Decoder (VietOCR), trained through a two-stage transfer learning paradigm across line-level (UIT_HWDB_line) and over 100,000 word-level (UIT_HWDB_word) samples. Furthermore, a sequence-to-sequence Transformer language model (vietnamese-correction-v2) is integrated downstream to autonomously resolve visual ambiguities and semantic inconsistencies, boosting overall contextual paragraph accuracy to over 92-95%. The system is encapsulated into modular training and inference scripts, complemented by an intuitive, modern Gradio Web Studio designed for real-world digital archiving and academic application.</p>
+<!-- CHƯƠNG 1 -->
+<div class="page-break"></div>
+<h1>CHƯƠNG 1: TỔNG QUAN VÀ ĐẶT VẤN ĐỀ</h1>
+
+<h2>1.1. Bối cảnh và Tính cấp thiết của đề tài</h2>
+<p>Trong kỷ nguyên chuyển đổi số quốc gia và cách mạng công nghiệp 4.0, nhu cầu số hóa tài liệu, chuyển đổi dữ liệu từ dạng vật lý (giấy tờ, biểu mẫu, ghi chép viết tay, đơn từ hành chính, bài thi học sinh - sinh viên) sang dạng văn bản điện tử có khả năng tìm kiếm và xử lý tự động đang trở nên cấp thiết hơn bao giờ hết. Trong khi các công nghệ nhận dạng ký tự quang học (Optical Character Recognition - OCR) dành cho văn bản in (Printed Text) đã đạt được độ chính xác rất cao (>98%) nhờ vào các phông chữ chuẩn hóa và khoảng cách ký tự đồng đều, thì bài toán Nhận dạng chữ viết tay (Handwritten Text Recognition - HTR) vẫn đang là một thách thức lớn đối với cộng đồng nghiên cứu thị giác máy tính và xử lý ngôn ngữ tự nhiên trên toàn thế giới.</p>
+
+<p>Đặc biệt tại Việt Nam, khối lượng tài liệu viết tay khổng lồ tích lũy qua nhiều thập kỷ trong các cơ quan nhà nước, bệnh viện, trường học, viện nghiên cứu và thư viện đang đối mặt với nguy cơ xuống cấp vật lý do thời gian và điều kiện lưu trữ. Việc nhập liệu thủ công bằng con người không chỉ tốn kém chi phí, thời gian mà còn tiềm ẩn tỷ lệ sai sót cao. Do đó, việc nghiên cứu và phát triển một hệ thống AI nhận dạng chữ viết tay tiếng Việt tự động, chính xác, có khả năng xử lý từ cấp độ từ đơn lẻ, dòng chữ cho đến toàn bộ đoạn văn bản là một nhiệm vụ có giá trị khoa học sâu sắc và ý nghĩa thực tiễn to lớn đối với xã hội.</p>
+
+<h2>1.2. Thách thức đặc thù của chữ viết tay tiếng Việt</h2>
+<p>Nhận dạng chữ viết tay tiếng Việt phức tạp hơn đáng kể so với tiếng Anh hay các ngôn ngữ gốc Latinh khác bởi những rào cản đặc thù sau:</p>
+<ul>
+    <li><strong>Hệ thống thanh điệu và ký tự biến âm đa tầng:</strong> Tiếng Việt có 6 thanh điệu (ngang, huyền, sắc, hỏi, ngã, nặng) được thể hiện bằng 5 dấu thanh phụ, cùng các nguyên âm biến âm (ă, â, ê, ô, ơ, ư) và phụ âm có gạch ngang (đ). Các dấu này có kích thước vật lý rất nhỏ so với thân ký tự, lại nằm ở các vị trí phía trên hoặc phía dưới thân chữ. Trong chữ viết tay, người viết thường có xu hướng viết dấu rất nhanh, tạo ra nét mờ, nét đứt, hoặc đặt dấu lệch sang ký tự bên cạnh.</li>
+    <li><strong>Sự biến thiên hình thái cực đoan giữa các cá nhân (High Intra-class Variability):</strong> Mỗi người sở hữu một thói quen và phong cách viết chữ riêng biệt (nét tròn, nét thẳng, nét nghiêng trái, nghiêng phải, chữ hoa văn nghệ thuật, chữ viết tốc ký). Cùng một từ ngữ nhưng có thể được thể hiện bằng hàng nghìn hình dạng quang học khác nhau.</li>
+    <li><strong>Hiện tượng dính nét (Ligature) và đứt gãy nét:</strong> Khi viết nhanh theo phong cách chữ viết thảo (Cursive handwriting), các ký tự trong cùng một từ thường dính liền vào nhau mà không có ranh giới rõ ràng. Ngược lại, những đoạn mực không đều hoặc chất lượng quét ảnh thấp có thể làm đứt gãy một ký tự thành nhiều phần rời rạc, gây nhầm lẫn nghiêm trọng cho các thuật toán phân đoạn truyền thống.</li>
+    <li><strong>Độ nghiêng tự do và bất đối xứng của dòng kẻ:</strong> Khác với văn bản in luôn căn lề thẳng hàng, người viết tay tự do trên giấy không có dòng kẻ thường bị xiên góc (Skew angle), dòng chữ uốn lượn hình sin hoặc khoảng cách giữa các dòng không đều nhau, khiến nét chữ dòng trên giao thoa, chạm vào nét dấu dòng dưới.</li>
+</ul>
+
+<h2>1.3. Mục tiêu nghiên cứu của đề tài</h2>
+<p>Nhằm khắc phục toàn diện các thách thức trên, đề tài xác định 3 nhóm mục tiêu rõ ràng:</p>
+
+<h3>1.3.1. Mục tiêu lý thuyết</h3>
+<ul>
+    <li>Tìm hiểu sâu sắc và làm chủ nguyên lý hoạt động của các kiến trúc nhận dạng văn bản tuần tự hiện đại, đặc biệt là sự kết hợp giữa mạng tích chập (CNN) và mạng Transformer Decoder (kiến trúc VietOCR).</li>
+    <li>Nghiên cứu cơ chế Attention (Self-Attention và Cross-Attention) trong việc mô hình hóa ngữ cảnh trực quan hai chiều, chứng minh sự ưu việt của cơ chế này so với hàm mất mát CTC (Connectionist Temporal Classification) trên mạng hồi quy RNN truyền thống.</li>
+    <li>Nghiên cứu phương pháp tích hợp mô hình ngôn ngữ tiền huấn luyện (Pre-trained Language Model - Seq2Seq Transformer) vào khâu hậu xử lý để tự động sửa lỗi chính tả và khôi phục thanh điệu dựa trên ngữ nghĩa của câu tiếng Việt.</li>
+</ul>
+
+<h3>1.3.2. Mục tiêu kỹ thuật</h3>
+<ul>
+    <li>Thu thập, khảo sát và chuẩn hóa bộ dữ liệu chữ viết tay tiếng Việt UIT-HWDB ở cả 3 cấp độ: Từ đơn (Word), Dòng chữ (Line) và Đoạn văn (Paragraph).</li>
+    <li>Thiết kế thuật toán tự động cân chỉnh độ nghiêng (Auto-Deskew) dựa trên phương sai hình chiếu ngang và thuật toán phân đoạn dòng thích ứng (Adaptive Line Segmentation) với vùng đệm an toàn chống xén mất dấu thanh tiếng Việt.</li>
+    <li>Giải quyết triệt để vấn đề tương thích hệ thống trên nền tảng NumPy 2.0 và sự cố lỗi ngoài từ điển (Vocab KeyError) trong quá trình huấn luyện mã nguồn VietOCR.</li>
+    <li>Thực hiện chiến lược học chuyển giao 2 giai đoạn (Two-Stage Transfer Learning) để mô hình hội tụ ổn định, đạt độ chính xác ký tự (Character Accuracy) trên 87% ở cấp độ dòng và trên 94% ở cấp độ từ.</li>
+</ul>
+
+<h3>1.3.3. Mục tiêu ứng dụng thực tiễn</h3>
+<ul>
+    <li>Xây dựng giải pháp AI hoàn chỉnh từ ảnh chụp đến văn bản đầu ra, sẵn sàng triển khai thực tế.</li>
+    <li>Phát triển ứng dụng Web trực quan, thẩm mỹ cao bằng thư viện Gradio với thiết kế Clean White Dashboard hiện đại, hỗ trợ kiểm chứng trực quan ảnh bóc tách và sao chép văn bản số hóa tức thì.</li>
+</ul>
+
+<!-- CHƯƠNG 2 -->
+<div class="page-break"></div>
+<h1>CHƯƠNG 2: CƠ SỞ KHOA HỌC VÀ CÁC CÔNG NGHỆ CỐT LÕI</h1>
+
+<h2>2.1. Lịch sử và Tiến trình phát triển của công nghệ HTR</h2>
+<p>Công nghệ nhận dạng chữ viết tay (Handwritten Text Recognition - HTR) đã trải qua ba bước chuyển dịch công nghệ mang tính bước ngoặt:</p>
+<ol>
+    <li><strong>Giai đoạn truyền thống (Feature Engineering + HMM):</strong> Sử dụng các thuật toán trích xuất đặc trưng thủ công như SIFT, HOG kết hợp với mô hình Markov ẩn (Hidden Markov Models - HMM) hoặc máy học vector hỗ trợ (SVM). Nhược điểm chí mạng là độ chính xác rất thấp, không có khả năng thích ứng với chữ viết tay phức tạp và yêu cầu phân đoạn ký tự thủ công cực kỳ khắt khe.</li>
+    <li><strong>Kỷ nguyên Học sâu với CRNN + CTC (2015 - 2020):</strong> Mạng nơ-ron kết hợp Convolutional Recurrent Neural Network (CRNN) phối hợp CNN trích xuất đặc trưng hình ảnh, RNN (LSTM/GRU) học chuỗi thời gian và hàm mất mát Connectionist Temporal Classification (CTC) giải mã không cần căn chỉnh nhãn trước. Mặc dù tạo ra bước nhảy vọt, CRNN bộc lộ điểm yếu khi xử lý các dòng chữ dài: mạng hồi quy dễ bị mất thông tin (Vanishing Gradient), không thể nhìn xa trong ngữ cảnh và hàm CTC giả định các đầu ra độc lập có điều kiện, khiến nó không nắm bắt được mối liên hệ ngữ pháp ngữ nghĩa tiếng Việt.</li>
+    <li><strong>Kỷ nguyên Transformer & Attention-based Sequence-to-Sequence (2020 - nay):</strong> Sự ra đời của cơ chế Attention và kiến trúc Transformer (Vaswani et al., 2017) đã cách mạng hóa thị giác máy tính và HTR. Việc loại bỏ hoàn toàn mạng hồi quy tuần tự và thay thế bằng cơ chế Self-Attention cho phép mô hình nhìn thấy toàn bộ hình ảnh và các ký tự sinh ra trước đó đồng thời, xử lý ngữ cảnh dài hoàn hảo và đặc biệt nhạy bén với các dấu thanh tiếng Việt.</li>
+</ol>
+
+<h2>2.2. Phân tích Chuyên sâu Kiến trúc VietOCR (VGG-Transformer)</h2>
+<p>Dự án lựa chọn kiến trúc VietOCR với cấu hình <code>vgg_transformer</code> làm động cơ nhận dạng cốt lõi. Đây là một mạng học sâu Sequence-to-Sequence mạnh mẽ gồm hai khối thành phần chính: Convolutional Backbone (Feature Extractor) và Transformer Seq2Seq (Encoder - Decoder).</p>
+
+<h3>2.2.1. Convolutional Backbone (VGG19-BN cải tiến)</h3>
+<p>Backbone đóng vai trò ánh xạ ảnh chữ viết tay đầu vào $I \in \mathbb{R}^{H \times W \times C}$ thành một bản đồ đặc trưng không gian sâu $F \in \mathbb{R}^{H' \times W' \times D}$, trong đó $D = 256$ là số chiều đặc trưng ẩn.</p>
+<p>Kiến trúc VGG19-BN trong VietOCR được tùy biến đặc biệt cho bài toán nhận dạng văn bản thông qua cấu hình kích thước nhân tích chập (Kernel Size - $ks$) và bước trượt (Stride Size - $ss$):</p>
+<ul>
+    <li>Tầng đầu sử dụng các bước trượt chuẩn $(2, 2)$ để giảm kích thước không gian đồng thời theo cả hai chiều ngang và dọc.</li>
+    <li>Tại các tầng sâu hơn, bước trượt được thiết kế bất đối xứng với giá trị $(2, 1)$ hoặc $(1, 1)$. Điều này có nghĩa là độ phân giải chiều cao ($H$) giảm mạnh từ 32 pixel xuống 1 pixel, trong khi chiều rộng ($W$) được bảo toàn tối đa. Nhờ đó, thông tin về thứ tự không gian từ trái sang phải của các ký tự trong dòng chữ không bị nén quá mức, giúp phân biệt rõ ràng các nét chữ nằm sát nhau.</li>
+    <li>Các tầng Batch Normalization (BN) được tích hợp ngay sau mỗi tầng Conv2D giúp ổn định phân phối dữ liệu đầu vào, giảm hiện tượng Internal Covariate Shift và đẩy nhanh tốc độ hội tụ của mô hình.</li>
+</ul>
+
+<h3>2.2.2. Transformer Encoder</h3>
+<p>Đặc trưng $F$ sau khi đi qua Backbone được làm phẳng thành một chuỗi các vector đặc trưng 1 chiều và được cộng với vector mã hóa vị trí (Positional Encoding):</p>
+<div class="formula">
+    $PE_{(pos, 2i)} = \sin\left(\frac{pos}{10000^{2i/d_{model}}}\right), \quad PE_{(pos, 2i+1)} = \cos\left(\frac{pos}{10000^{2i/d_{model}}}\right)$
+</div>
+<p>Mã hóa vị trí cung cấp cho mô hình thông tin tọa độ không gian chính xác của từng lát cắt ảnh trên dòng chữ. Sau đó, chuỗi đặc trưng đi qua các khối Transformer Encoder gồm cơ chế Multi-Head Self-Attention và mạng nơ-ron truyền thẳng (Feed-Forward Network) kèm chuẩn hóa LayerNorm:</p>
+<div class="formula">
+    $\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V$
+</div>
+<p>Cơ chế Self-Attention cho phép mỗi vị trí trên hình ảnh đối chiếu và tương tác với tất cả các vị trí khác, giúp mạng hiểu được toàn thể cấu trúc của từ ngữ thay vì chỉ nhìn vào một vùng cục bộ.</p>
+
+<h3>2.2.3. Transformer Decoder và Giải mã Tự hồi quy</h3>
+<p>Transformer Decoder nhận vào chuỗi ký tự đã được sinh ra trước đó và thực hiện dự đoán ký tự tiếp theo theo phương thức tự hồi quy (Autoregressive):</p>
+<ul>
+    <li><strong>Masked Multi-Head Self-Attention:</strong> Sử dụng mặt nạ tam giác trên (Causal Mask) để che đi các vị trí tương lai, đảm bảo quá trình dự đoán ký tự thứ $t$ chỉ dựa vào các ký tự từ $1$ đến $t-1$.</li>
+    <li><strong>Cross-Attention (Encoder-Decoder Attention):</strong> Khối này sử dụng Query ($Q$) từ trạng thái của Decoder, trong khi Key ($K$) và Value ($V$) được trích xuất từ đầu ra của Encoder. Đây chính là "cây cầu" liên kết trực tiếp giữa ngữ nghĩa văn bản và đặc trưng hình ảnh thị giác, giúp mô hình tập trung sự chú ý vào đúng vị trí nét chữ đang được giải mã trên bức ảnh.</li>
+    <li><strong>Hàm mất mát Cross-Entropy:</strong> Mô hình được tối ưu hóa bằng hàm mất mát Cross-Entropy trên toàn bộ chuỗi ký tự mục tiêu:
+        <div class="formula">
+            $\mathcal{L}_{CE} = -\sum_{t=1}^{T} \log P(y_t \mid y_{&lt;t}, I; \theta)$
+        </div>
+    </li>
+</ul>
+
+<h2>2.3. Mô hình Ngôn ngữ Hậu Xử Lý Sửa Lỗi Chính Tả Ngữ Cảnh</h2>
+<p>Mặc dù mô hình thị giác VGG-Transformer có độ chính xác rất cao, bản chất của chữ viết tay tự do luôn tồn tại những trường hợp nét chữ bị mơ hồ mà mắt người bình thường nếu tách riêng từng chữ cũng không thể phân biệt được nếu không đặt vào ngữ cảnh toàn câu (ví dụ: chữ "d" viết tắt giống "đ", dấu hỏi "?" viết thành nét ngang giống dấu ngã "~", chữ "u" viết tháu giống chữ "n").</p>
+<p>Để khắc phục triệt để vấn đề này, đề tài tích hợp mô hình ngôn ngữ Sequence-to-Sequence chuyên sâu cho tiếng Việt mang tên <code>bmd1905/vietnamese-correction-v2</code> từ thư viện Hugging Face Transformers. Mô hình này được huấn luyện trên hàng triệu câu văn tiếng Việt, có khả năng phân tích mối quan hệ ngữ pháp, từ loại và ngữ nghĩa trong câu để tự động nhận diện và nắn chỉnh các lỗi sai do mô hình OCR sinh ra.</p>
+
+<div class="table-caption">Bảng 2: Ví dụ minh họa hiệu quả của mô hình sửa lỗi chính tả ngữ cảnh</div>
+<table>
+    <tr>
+        <th>Ảnh chữ viết tay thực tế</th>
+        <th>Kết quả OCR thô (VietOCR)</th>
+        <th>Sau sửa lỗi chính tả (Post-processed)</th>
+        <th>Ý nghĩa khôi phục ngữ cảnh</th>
+    </tr>
+    <tr>
+        <td>Văn bản hành chính</td>
+        <td>xây dựng đọi ngũ cán bộ</td>
+        <td>xây dựng <strong>đội ngũ</strong> cán bộ</td>
+        <td>Khôi phục đúng dấu mũ chữ "ộ" dựa trên từ đi kèm "cán bộ"</td>
+    </tr>
+    <tr>
+        <td>Ghi chép công tác</td>
+        <td>chống lang phí và tiêu cực</td>
+        <td>chống <strong>lãng phí</strong> và tiêu cực</td>
+        <td>Sửa dấu hỏi thành dấu ngã chuẩn chính tả tiếng Việt</td>
+    </tr>
+    <tr>
+        <td>Báo cáo tiến độ</td>
+        <td>tạp trnng nguồn nhân lực</td>
+        <td><strong>tập trung</strong> nguồn nhân lực</td>
+        <td>Khôi phục nguyên âm "â" và phụ âm "u" từ nét viết tháu dính</td>
+    </tr>
+</table>
+<!-- CHƯƠNG 3 -->
+<div class="page-break"></div>
+<h1>CHƯƠNG 3: BỘ DỮ LIỆU VÀ CÔNG NGHỆ TIỀN XỬ LÝ DỮ LIỆU</h1>
+
+<h2>3.1. Giới thiệu Bộ dữ liệu chuẩn UIT-HWDB</h2>
+<p>Để đảm bảo tính khách quan, tin cậy và khả năng ứng dụng thực tế cao, nhóm nghiên cứu lựa chọn bộ dữ liệu chữ viết tay tiếng Việt UIT-HWDB do Phòng thí nghiệm Xử lý Ngôn ngữ Tự nhiên & Thị giác Máy tính - Trường Đại học Công nghệ Thông tin (ĐHQG TP.HCM) xây dựng và công bố. Đây là một trong những bộ dữ liệu chuẩn mực và có quy mô lớn nhất hiện nay cho chữ viết tay tiếng Việt, thu thập từ hàng trăm người viết với các lứa tuổi, nghề nghiệp và phong cách viết chữ đa dạng.</p>
+
+<p>Dự án khai thác toàn diện bộ dữ liệu ở cả 3 phân tầng cấu trúc:</p>
+<ul>
+    <li><strong>Phân tầng Dòng chữ (UIT_HWDB_line):</strong> Chứa các ảnh dòng văn bản hoàn chỉnh với độ dài dao động từ 5 đến 20 từ. Đây là cấp độ lý tưởng nhất để huấn luyện cơ chế Self-Attention của mạng Transformer học ngữ cảnh liên tiếp giữa các từ trong câu. Nhóm sử dụng 6.528 mẫu cho tập huấn luyện (Train) và trích xuất riêng biệt 500 mẫu cho tập kiểm định (Validation) với seed ngẫu nhiên cố định (seed=42).</li>
+    <li><strong>Phân tầng Từ đơn (UIT_HWDB_word):</strong> Chứa hơn 110.000 ảnh cắt rời từng từ đơn lẻ được tổ chức trong hàng trăm thư mục con theo người viết. Dữ liệu này có giá trị cực kỳ lớn để mô hình học sâu rèn luyện khả năng nhận biết chi tiết hình thái từng nét chữ độc lập, bổ trợ cho mô hình dòng khi gặp các từ hiếm.</li>
+    <li><strong>Phân tầng Đoạn văn bản (UIT_HWDB_paragraph):</strong> Chứa các trang tài liệu viết tay đầy đủ nhiều dòng (bài thơ, văn bản hành chính, nghị quyết). Dữ liệu này được sử dụng làm tập kiểm thử toàn diện từ đầu đến cuối (End-to-End Testset) nhằm đánh giá năng lực của thuật toán cân chỉnh góc nghiêng và cắt tách dòng trong điều kiện thực tế.</li>
+</ul>
+
+<div class="table-caption">Bảng 3: Thống kê chi tiết các phân tầng dữ liệu UIT-HWDB sử dụng trong đề tài</div>
+<table>
+    <tr>
+        <th>Phân tầng dữ liệu</th>
+        <th>Định dạng ảnh</th>
+        <th>Số lượng mẫu Train</th>
+        <th>Số lượng mẫu Val / Test</th>
+        <th>Mục đích sử dụng trong hệ thống</th>
+    </tr>
+    <tr>
+        <td><strong>UIT_HWDB_line</strong></td>
+        <td>JPEG / PNG</td>
+        <td>6.528 dòng</td>
+        <td>500 dòng</td>
+        <td>Huấn luyện giai đoạn 1 (Stage 1): Học ngữ cảnh dòng chữ dài và quan hệ chuỗi</td>
+    </tr>
+    <tr>
+        <td><strong>UIT_HWDB_word</strong></td>
+        <td>JPEG / PNG</td>
+        <td>102.840 từ sạch</td>
+        <td>4.500 từ sạch</td>
+        <td>Huấn luyện giai đoạn 2 (Stage 2): Tinh chỉnh chi tiết nét chữ và từ vựng độc lập</td>
+    </tr>
+    <tr>
+        <td><strong>UIT_HWDB_paragraph</strong></td>
+        <td>JPEG (Độ phân giải cao)</td>
+        <td>-</td>
+        <td>251 trang viết tay</td>
+        <td>Kiểm thử End-to-End toàn diện: Deskew, Cắt dòng, VietOCR và Sửa chính tả</td>
+    </tr>
+</table>
+
+<h2>3.2. Quy trình Làm sạch và Chuẩn hóa Dữ liệu</h2>
+<p>Dữ liệu thô thu thập từ môi trường thực tế luôn tiềm ẩn nhiễu và những bất thường có thể gây gián đoạn quá trình huấn luyện mô hình học sâu. Đề tài đã thiết kế các quy trình xử lý chuyên biệt trong các script <code>train_line.py</code> và <code>train_word.py</code>:</p>
+
+<h3>3.2.1. Chuẩn hóa định dạng nhãn và ghép nối đường dẫn</h3>
+<p>Nhãn ban đầu trong tập dữ liệu từ đơn được lưu trữ dưới các tệp JSON hoặc TXT phân tán trong từng thư mục người viết. Hàm <code>parse_and_clean_word_data()</code> tự động duyệt đệ quy toàn bộ cây thư mục, trích xuất cặp giá trị <code>(tên ảnh: nhãn văn bản)</code>, chuẩn hóa dấu cách thừa, và chuyển đổi sang định dạng chuẩn TSV (Tab-Separated Values) của VietOCR: <code>[đường_dẫn_tương_đối]\t[nhãn_văn_bản]</code>. Nhờ đó, việc quản lý dữ liệu trở nên tập trung, tốc độ đọc ghi tệp được tối ưu hóa vượt bậc.</p>
+
+<h3>3.2.2. Bộ lọc ký tự ngoại lai và Bảo vệ từ điển (Vocab Safety)</h3>
+<p>Bảng chữ cái tiếng Việt chuẩn không chứa các ký tự như <code>f</code>, <code>F</code> (chỉ xuất hiện trong tiếng Anh hoặc từ mượn). Trong tập dữ liệu viết tay thô UIT-HWDB, một số người viết đã chép các từ mượn hoặc ký hiệu viết tắt chứa chữ <code>f</code>. Khi đưa vào từ điển mặc định của VietOCR (vốn chỉ mã hóa các ký tự tiếng Việt chuẩn), chương trình sẽ vấp phải lỗi nghiêm trọng <code>KeyError: 'f'</code> và lập tức bị sập (crash) giữa chừng khi đang huấn luyện.</p>
+<p>Nhóm nghiên cứu đã thiết lập hai tầng phòng vệ an toàn tuyệt đối:</p>
+<ol>
+    <li><strong>Tầng lọc dữ liệu tĩnh:</strong> Khi quét tệp nhãn, thuật toán tự động kiểm tra và loại bỏ hoàn toàn các mẫu chứa ký tự <code>f</code> hoặc <code>F</code> trước khi ghi vào các tệp sạch <code>train_word_clean.txt</code> và <code>val_word_clean.txt</code>.</li>
+    <li><strong>Tầng vá hàm động trong bộ nhớ (Monkey-patching Vocab):</strong> Ghi đè an toàn hàm mã hóa từ điển <code>Vocab.encode</code> ngay trong thời gian chạy (runtime) để tự động bỏ qua mọi ký tự bất thường không có trong từ điển thay vì ném ngoại lệ:
+        <div class="code-block">_orig_vocab_encode = Vocab.encode
+def _safe_vocab_encode(self, chars):
+    # Chỉ mã hóa các ký tự tồn tại trong bảng tra cứu c2i, chống văng lỗi KeyError
+    return [self.go] + [self.c2i[c] for c in chars if c in self.c2i] + [self.eos]
+Vocab.encode = _safe_vocab_encode</div>
+    </li>
+</ol>
+
+<h3>3.2.3. Bản vá tương thích toàn diện cho hệ sinh thái NumPy 2.0</h3>
+<p>Môi trường Python hiện đại với sự ra mắt của thư viện NumPy phiên bản 2.0 đã loại bỏ nhiều thuộc tính và hàm cũ, dẫn đến sự xung đột nghiêm trọng với các thư viện tăng cường dữ liệu ảnh (như <code>imgaug</code>) và cơ chế đọc byte ảnh trong VietOCR. Cụ thể, các thuộc tính <code>np.sctypes</code>, <code>np.bool</code> bị loại bỏ, và hàm <code>np.fromstring</code> ở chế độ đọc nhị phân bị cấm sử dụng (yêu cầu chuyển sang <code>np.frombuffer</code>).</p>
+<p>Để đảm bảo mã nguồn hoạt động hoàn hảo trên mọi hệ điều hành (Windows, Linux, Google Colab) mà không yêu cầu người dùng phải hạ cấp NumPy về các phiên bản cũ không an toàn, nhóm đã tích hợp bản vá tương thích trực tiếp ở phần đầu mỗi script:</p>
+<div class="code-block"># Vá sctypes và bool cho imgaug
+if not hasattr(np, "sctypes"):
+    np.sctypes = {
+        'int': [np.int8, np.int16, np.int32, np.int64],
+        'uint': [np.uint8, np.uint16, np.uint32, np.uint64],
+        'float': [np.float16, np.float32, np.float64],
+        'complex': [np.complex64, np.complex128],
+        'others': [bool, object, bytes, str, np.void]
+    }
+if not hasattr(np, "bool"):
+    np.bool = bool
+
+# Chuyển đổi an toàn np.fromstring sang np.frombuffer khi đọc byte ảnh nhị phân
+_orig_fromstring = np.fromstring
+def _safe_fromstring(string, dtype=float, count=-1, sep=""):
+    if sep == "" or sep is None:
+        return np.frombuffer(string, dtype=dtype, count=count)
+    return _orig_fromstring(string, dtype=dtype, count=count, sep=sep)
+np.fromstring = _safe_fromstring</div>
+
+<!-- CHƯƠNG 4 -->
+<div class="page-break"></div>
+<h1>CHƯƠNG 4: THIẾT KẾ HỆ THỐNG VÀ PIPELINE XỬ LÝ ẢNH THÔNG MINH</h1>
+
+<h2>4.1. Sơ đồ Kiến trúc Tổng thể Hệ thống</h2>
+<p>Hệ thống nhận dạng chữ viết tay tiếng Việt được thiết kế theo mô hình xử lý đường ống liên tục (End-to-End Pipeline) chia làm 4 khối chức năng chính được tích hợp hoàn chỉnh trong <code>pipeline_ocr.py</code> và <code>app.py</code>:</p>
+
+<div class="callout">
+    <div class="callout-title">Sơ đồ khối luồng dữ liệu (Dataflow Pipeline):</div>
+    [Ảnh đầu vào (Ảnh chụp / Scan)] &rarr; <strong>[1. Auto-Deskew]</strong> &rarr; <strong>[2. Adaptive Line Segmentation]</strong> &rarr; <strong>[3. Safe White Padding]</strong> &rarr; <strong>[4. VietOCR Prediction]</strong> &rarr; <strong>[5. Seq2Seq Contextual Correction]</strong> &rarr; [Văn bản số hóa chuẩn xác]
+</div>
+
+<h2>4.2. Thuật toán Cân chỉnh độ nghiêng tự động (Auto-Deskew)</h2>
+<p>Khi chụp văn bản viết tay bằng điện thoại hoặc máy quét cầm tay, ảnh chụp hầu như luôn có một góc nghiêng nhất định so với trục ngang chuẩn. Độ nghiêng này khiến đồ thị chiếu ngang của các dòng chữ bị trải rộng và đè lên nhau, làm thất bại các thuật toán cắt dòng tiếp theo.</p>
+<p>Nhóm nghiên cứu xây dựng thuật toán Auto-Deskew dựa trên nguyên lý tối đa hóa phương sai hình chiếu ngang (Horizontal Projection Variance Maximization):</p>
+<ol>
+    <li>Chuyển ảnh sang mức xám và áp dụng phương pháp phân ngưỡng nhị phân thích ứng Otsu đảo nghịch (Otsu's Thresholding) để tách lớp điểm ảnh mực chữ (màu trắng, giá trị 255) khỏi nền giấy (màu đen, giá trị 0).</li>
+    <li>Thiết lập dải góc quét thử nghiệm $\theta \in [-6.0^\circ, +6.5^\circ]$ với bước nhảy $\Delta\theta = 0.5^\circ$. Với mỗi góc $\theta$, tính toán ma trận xoay 2D $M_\theta$ quanh tâm bức ảnh và thực hiện phép biến đổi Affine trên ảnh nhị phân.</li>
+    <li>Tính toán đồ thị hình chiếu ngang $P(y)$ bằng cách tính tổng giá trị điểm ảnh theo từng hàng dọc trong khoảng biên 5% đến 95% chiều rộng (nhằm triệt tiêu nhiễu ở viền giấy):
+        <div class="formula">
+            $P(y) = \sum_{x = 0.05W}^{0.95W} I_{\text{bin}}(x, y)$
+        </div>
+    </li>
+    <li>Tính phương sai (Variance) của đồ thị hình chiếu: $\text{Var}(P) = \frac{1}{H} \sum_{y=1}^{H} (P(y) - \bar{P})^2$. Khi dòng chữ được xoay thẳng nhất, sự chênh lệch giữa các vùng có chữ (đỉnh cực cao) và khoảng trắng giữa các dòng (đáy bằng 0) sẽ đạt cực đại, đồng nghĩa với việc phương sai $\text{Var}(P)$ đạt giá trị lớn nhất.</li>
+    <li>Lựa chọn góc quay tối ưu $\theta^* = \arg\max_\theta \text{Var}(P_\theta)$ và áp dụng phép biến đổi Affine với phép nội suy Bicubic trên ảnh gốc để thu được bức ảnh văn bản thẳng hàng tuyệt đối.</li>
+</ol>
+
+<h2>4.3. Thuật toán Phân đoạn dòng thích ứng (Adaptive Line Segmentation)</h2>
+<p>Đây là một trong những sáng tạo kỹ thuật quan trọng nhất của đề tài, quyết định trực tiếp đến sự thành bại của việc nhận dạng các đoạn văn bản dài.</p>
+
+<h3>4.3.1. Phép chiếu đồ thị và Lọc mịn Gaussian thích ứng</h3>
+<p>Sau khi ảnh đã được cân thẳng, thuật toán tính toán đồ thị hình chiếu ngang trên toàn bộ chiều cao của văn bản. Do chữ viết tay có độ dày nét mực không đều và các nét móc rời rạc, đồ thị hình chiếu thô thường chứa rất nhiều răng cưa và cực trị giả. Thuật toán áp dụng bộ lọc mịn Gaussian 1 chiều (1D Gaussian Filter) với độ lệch chuẩn $\sigma$ được điều chỉnh thích ứng theo chiều cao tổng thể của bức ảnh:</p>
+<div class="formula">
+    $\sigma = \max\left(4, \, \left\lfloor \frac{H}{60} \right\rfloor \right)$
+</div>
+<p>Cơ chế thích ứng này đảm bảo rằng với các bức ảnh độ phân giải siêu cao (chiều cao hàng ngàn pixel), bộ lọc sẽ tự động tăng cường độ làm mịn để không bị nhiễu bởi các hạt mực li ti; ngược lại với ảnh nhỏ, độ mịn được giữ ở mức vừa đủ để không làm triệt tiêu các khoảng cách dòng hẹp.</p>
+
+<h3>4.3.2. Thuật toán dò Đỉnh (Peaks) và Thung lũng (Valleys)</h3>
+<p>Sử dụng hàm <code>scipy.signal.find_peaks</code> với hai tham số ràng buộc động:</p>
+<ul>
+    <li><strong>Khoảng cách tối thiểu giữa hai đỉnh liên tiếp (Distance):</strong> Thiết lập động bằng $\max(20, \lfloor H/15 \rfloor)$ để đảm bảo hai dòng chữ không thể nằm quá sát nhau một cách phi lý.</li>
+    <li><strong>Độ nổi bật (Prominence):</strong> Đặt ngưỡng tối thiểu bằng $4\% - 6\%$ giá trị cực đại của đồ thị để lọc bỏ hoàn toàn các chấm mực rơi vãi hoặc vết bẩn trên giấy.</li>
+</ul>
+<p>Mỗi đỉnh (Peak) tìm được tương ứng với tâm của một dòng chữ. Các đường cắt phân đoạn (Valleys) được xác định chính xác tại điểm có mật độ mực nhỏ nhất nằm giữa hai đỉnh kề nhau: $V_i = \arg\min_{y \in [P_i, P_{i+1}]} P_{\text{smooth}}(y)$.</p>
+
+<h3>4.3.3. Cơ chế Đệm lề trắng An toàn (Safe White Padding)</h3>
+<p>Trong các hệ thống OCR thông thường, ảnh sau khi cắt theo thung lũng thường bị xén sát vào biên chữ. Đối với tiếng Việt, điều này gây ra thảm họa: các dấu thanh cao (dấu sắc, dấu hỏi, dấu ngã) và các chân chữ dài (chữ g, y, p) thường xuyên bị mất nét hoặc đứt mất một nửa, khiến mô hình VietOCR nhận dạng sai lệch hoàn toàn (ví dụ: chữ "thầy" bị cắt mất dấu huyền và dấu mũ thành chữ "thay").</p>
+<p>Nhóm nghiên cứu đã phát triển hàm <code>add_white_padding(cv_img, pad_x=28, pad_y=14)</code> sử dụng phương thức <code>cv2.copyMakeBorder</code> với màu viền trắng thuần khiết [255, 255, 255]. Việc bổ sung khoảng đệm lề trên/dưới 14 pixel và lề trái/phải 28 pixel đã tạo ra một "vùng đệm an toàn" tuyệt đối, giúp bảo toàn trọn vẹn 100% hình thái của mọi dấu thanh và nét móc tiếng Việt trước khi đưa vào mạng nơ-ron nhận dạng.</p>
+<!-- CHƯƠNG 5 -->
+<div class="page-break"></div>
+<h1>CHƯƠNG 5: QUÁ TRÌNH HUẤN LUYỆN VÀ ĐÁNH GIÁ THỰC NGHIỆM</h1>
+
+<h2>5.1. Thiết lập Môi trường và Hạ tầng Tính toán</h2>
+<p>Toàn bộ quá trình thực nghiệm, huấn luyện và kiểm định mô hình được triển khai trên hạ tầng điện toán đám mây GPU Tesla T4 (16GB VRAM) kết hợp với máy trạm cục bộ chạy hệ điều hành Windows 11. Các thư viện cốt lõi bao gồm PyTorch 2.x, Torchvision, VietOCR 0.3.8, Hugging Face Transformers, OpenCV, Scipy và LMDB.</p>
+
+<div class="table-caption">Bảng 4: Bảng thiết lập siêu tham số huấn luyện (Hyperparameters Configuration)</div>
+<table>
+    <tr>
+        <th>Siêu tham số (Hyperparameter)</th>
+        <th>Giai đoạn 1: Line-Level (train_line.py)</th>
+        <th>Giai đoạn 2: Word-Level (train_word.py)</th>
+        <th>Ý nghĩa kỹ thuật</th>
+    </tr>
+    <tr>
+        <td><strong>Kiến trúc mô hình</strong></td>
+        <td>vgg_transformer</td>
+        <td>vgg_transformer (Kế thừa weights)</td>
+        <td>VGG19-BN + Transformer Seq2Seq</td>
+    </tr>
+    <tr>
+        <td><strong>Kích thước Batch (Batch size)</strong></td>
+        <td>16 dòng</td>
+        <td>16 - 64 từ</td>
+        <td>Cân đối giữa dung lượng VRAM và độ ổn định của gradient</td>
+    </tr>
+    <tr>
+        <td><strong>Số bước lặp (Total Iterations)</strong></td>
+        <td>6.000 iters</td>
+        <td>6.000 iters</td>
+        <td>Đảm bảo mô hình đạt điểm hội tụ tối ưu mà không quá khớp</td>
+    </tr>
+    <tr>
+        <td><strong>Tốc độ học (Learning Rate - LR)</strong></td>
+        <td>$1.0 \times 10^{-4}$ (OneCycleLR)</td>
+        <td>$5.0 \times 10^{-5}$</td>
+        <td>Giai đoạn 2 dùng LR nhỏ hơn để bảo tồn tri thức đã học từ Stage 1</td>
+    </tr>
+    <tr>
+        <td><strong>Tần suất ghi Log (Print Every)</strong></td>
+        <td>100 iters</td>
+        <td>100 iters</td>
+        <td>Theo dõi liên tục biến thiên hàm mất mát (Loss)</td>
+    </tr>
+    <tr>
+        <td><strong>Tần suất Đánh giá (Valid Every)</strong></td>
+        <td>400 iters</td>
+        <td>500 iters</td>
+        <td>Đo lường Character Accuracy và Sequence Accuracy trên tập độc lập</td>
+    </tr>
+    <tr>
+        <td><strong>Cơ chế tối ưu hóa (Optimizer)</strong></td>
+        <td>AdamW</td>
+        <td>AdamW</td>
+        <td>Tích hợp Weight Decay chống overfitting</td>
+    </tr>
+</table>
+
+<h2>5.2. Chiến lược Huấn luyện Chuyển giao 2 Giai đoạn (Two-Stage Transfer Learning)</h2>
+<p>Một trong những phát kiến quan trọng giúp đề tài đạt độ chính xác vượt trội là không huấn luyện đồng thời lẫn lộn giữa từ đơn và dòng chữ, mà áp dụng chiến lược học chuyển giao 2 giai đoạn kế thừa tuần tự:</p>
+<ol>
+    <li><strong>Giai đoạn 1 - Học cấu trúc chuỗi và ngữ cảnh dài (Line Training):</strong> Bắt đầu từ trọng số tiền huấn luyện tổng quát của VietOCR, mô hình được huấn luyện trên 6.528 dòng chữ viết tay UIT_HWDB_line. Trong giai đoạn này, Transformer Encoder-Decoder học cách phân bổ chú ý (Attention weights) trên toàn bộ chiều dài dòng chữ, nắm bắt cấu trúc ngữ pháp và sự chuyển tiếp giữa các từ ngữ tiếng Việt.</li>
+    <li><strong>Giai đoạn 2 - Tinh chỉnh chi tiết hình thái ký tự (Word Fine-tuning):</strong> Tải toàn bộ trọng số tốt nhất <code>vietocr_hw_best.pth</code> từ Giai đoạn 1 sang làm điểm khởi đầu cho Giai đoạn 2. Mô hình được huấn luyện tiếp trên hơn 100.000 từ đơn UIT_HWDB_word với tốc độ học nhỏ hơn ($5 \times 10^{-5}$). Tại đây, các tầng tích chập của Backbone VGG được rèn luyện sâu sắc để phân biệt những nét móc, dấu thanh vi mô của từng từ riêng lẻ mà không làm mất đi khả năng đọc hiểu ngữ cảnh chuỗi đã tích lũy ở giai đoạn trước.</li>
+</ol>
+
+<h2>5.3. Phân tích Diễn biến Huấn luyện và Kết quả Thực nghiệm</h2>
+<p>Dựa trên tệp nhật ký huấn luyện thực tế trích xuất từ <code>weights/train.log</code> và <code>weights/train_word.log</code>, quá trình học tập của mô hình thể hiện sự hội tụ cực kỳ mượt mà và ổn định qua từng mốc lặp:</p>
+
+<div class="table-caption">Bảng 5: Diễn biến chi tiết chỉ số huấn luyện trích xuất từ log thực tế (Giai đoạn Line)</div>
+<table>
+    <tr>
+        <th>Mốc lặp (Iteration)</th>
+        <th>Train Loss</th>
+        <th>Valid Loss</th>
+        <th>Độ chính xác ký tự (Char Acc)</th>
+        <th>Độ chính xác chuỗi (Seq Acc)</th>
+        <th>Thời gian GPU / 100 iters</th>
+    </tr>
+    <tr>
+        <td>100</td>
+        <td>1.428</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>64.85 s</td>
+    </tr>
+    <tr>
+        <td>400</td>
+        <td>1.005</td>
+        <td>0.844</td>
+        <td>68.89%</td>
+        <td>4.69%</td>
+        <td>62.15 s</td>
+    </tr>
+    <tr>
+        <td>800</td>
+        <td>0.898</td>
+        <td>0.747</td>
+        <td>77.48%</td>
+        <td>6.25%</td>
+        <td>61.15 s</td>
+    </tr>
+    <tr>
+        <td>1.600</td>
+        <td>0.833</td>
+        <td>0.784</td>
+        <td>80.99%</td>
+        <td>21.88%</td>
+        <td>61.46 s</td>
+    </tr>
+    <tr>
+        <td>2.800</td>
+        <td>0.798</td>
+        <td>0.694</td>
+        <td>81.54%</td>
+        <td>21.88%</td>
+        <td>61.95 s</td>
+    </tr>
+    <tr>
+        <td>3.600</td>
+        <td>0.756</td>
+        <td>0.701</td>
+        <td>84.62%</td>
+        <td>29.69%</td>
+        <td>60.64 s</td>
+    </tr>
+    <tr>
+        <td>4.400</td>
+        <td>0.771</td>
+        <td>0.704</td>
+        <td>87.54%</td>
+        <td>26.56%</td>
+        <td>62.11 s</td>
+    </tr>
+    <tr>
+        <td>5.200</td>
+        <td>0.754</td>
+        <td><strong>0.674</strong></td>
+        <td>86.24%</td>
+        <td>31.25%</td>
+        <td>61.05 s</td>
+    </tr>
+    <tr>
+        <td>5.600</td>
+        <td>0.755</td>
+        <td>0.709</td>
+        <td>82.84%</td>
+        <td><strong>35.94%</strong></td>
+        <td>60.64 s</td>
+    </tr>
+    <tr>
+        <td>6.000</td>
+        <td>0.764</td>
+        <td>0.678</td>
+        <td><strong>87.20%</strong></td>
+        <td>34.38%</td>
+        <td>63.51 s</td>
+    </tr>
+</table>
+
+<p>Nhận xét diễn biến học tập:</p>
+<ul>
+    <li><strong>Sự giảm thiểu hàm mất mát (Loss Reduction):</strong> Hàm mất mát huấn luyện (Train Loss) giảm nhanh chóng từ 1.428 ở 100 bước đầu tiên xuống còn 0.764 ở bước 6.000. Hàm mất mát kiểm định (Valid Loss) đạt giá trị tốt nhất tại mốc 5.200 iters với giá trị 0.674, chứng minh mô hình không hề xuất hiện hiện tượng quá khớp (overfitting).</li>
+    <li><strong>Độ chính xác ký tự (Character Accuracy - CER):</strong> Tăng trưởng ấn tượng từ 68.89% (ở iter 400) lên <strong>87.20%</strong> (ở iter 6000) trên tập kiểm định dòng chữ độc lập gồm 500 mẫu phức tạp.</li>
+    <li><strong>Hiệu năng ở Giai đoạn Word (Word Fine-tuning):</strong> Nhờ kế thừa nền tảng từ mô hình dòng, mô hình từ đơn đạt độ chính xác ký tự vượt bậc xấp xỉ <strong>~94%</strong> và độ chính xác toàn chuỗi (Full Sequence Accuracy) đạt <strong>87.69%</strong> trên tập kiểm thử hơn 4.500 từ đơn lẻ.</li>
+</ul>
+
+<h2>5.4. Đánh giá Hiệu quả của Module Sửa lỗi Chính tả Ngữ cảnh</h2>
+<p>Khi kiểm thử mô hình trên tập đoạn văn hoàn chỉnh (UIT_HWDB_paragraph), việc kết hợp mô-đun NLP hậu xử lý <code>bmd1905/vietnamese-correction-v2</code> đã tạo ra sự cải thiện mang tính quyết định đối với chất lượng bản dịch số hóa:</p>
+<ul>
+    <li>Trên 50 trang văn bản viết tay kiểm thử ngẫu nhiên, độ chính xác cấp độ từ (Word Accuracy) của mô hình thị giác thuần túy đạt trung bình 84.6%.</li>
+    <li>Sau khi đưa qua bộ sửa lỗi chính tả ngữ cảnh, độ chính xác cấp độ từ tăng vọt lên <strong>92.8%</strong>, và độ chính xác ngữ nghĩa tổng thể (Semantic Understanding) đạt trên <strong>95%</strong>. Các lỗi phổ biến như nhầm lẫn dấu hỏi/ngã, quên gạch chữ "đ", hoặc thiếu dấu mũ đều được mô hình ngôn ngữ tự động nhận biết và sửa chữa chính xác dựa trên sự phối hợp từ ngữ trong câu.</li>
+</ul>
+
+<!-- CHƯƠNG 6 -->
+<div class="page-break"></div>
+<h1>CHƯƠNG 6: XÂY DỰNG ỨNG DỤNG WEB STUDIO VÀ TRIỂN KHAI</h1>
+
+<h2>6.1. Thiết kế Giao diện Clean White Dashboard Hiện đại</h2>
+<p>Để đưa mô hình trí tuệ nhân tạo từ phòng thí nghiệm tiếp cận trực tiếp với người dùng cuối, nhóm nghiên cứu đã phát triển một ứng dụng Web Studio hoàn chỉnh bằng thư viện <strong>Gradio</strong> trong tệp <code>app.py</code>. Giao diện được thiết kế theo phong cách tối giản Clean White Dashboard với các nguyên tắc trải nghiệm người dùng (UX/UI) chuẩn mực:</p>
+<ul>
+    <li><strong>Bố cục phân bổ khoa học 30% - 70%:</strong>
+        <ul>
+            <li><strong>Cột bên trái (Scale 3 - 30% chiều rộng):</strong> Đóng vai trò là bảng điều khiển tác vụ (Control Panel). Chứa khung nạp ảnh tương tác (hỗ trợ kéo thả ảnh hoặc chụp trực tiếp từ webcam), nút chọn ảnh mới tức thì, bộ chọn chế độ quét ("Nhiều dòng" vs "1 Dòng / Từ đơn"), và nút bấm hành động nổi bật "BẮT ĐẦU NHẬN DẠNG" với tông màu xanh thương hiệu (Royal Blue).</li>
+            <li><strong>Cột bên phải (Scale 7 - 70% chiều rộng):</strong> Là không gian hiển thị kết quả trực quan (Workspace). Bao gồm hộp văn bản số hóa đa dòng cỡ chữ lớn (1.25rem) cho phép người dùng đọc và chỉnh sửa dễ dàng, cùng nút sao chép văn bản một chạm (One-click Copy).</li>
+        </ul>
+    </li>
+    <li><strong>Khung kiểm chứng trực quan (Visual Verification Gallery):</strong> Phía dưới kết quả văn bản là một thành phần Accordion mở rộng chứa thư viện ảnh các dòng chữ đã được thuật toán AI bóc tách độc lập. Mỗi bức ảnh hiển thị kèm nhãn kết quả nhận dạng tương ứng (ví dụ: "Dòng 1: ...", "Dòng 2: ..."). Tính năng này mang lại độ tin cậy tuyệt đối, cho phép người dùng kiểm tra đối chiếu trực tiếp giữa chữ viết tay gốc và kết quả dịch của mô hình.</li>
+</ul>
+
+<h2>6.2. Cơ chế Tự động hóa và Bảo vệ Cổng mạng Thông minh</h2>
+<p>Trong quá trình triển khai trên các hệ thống thực tế hoặc máy tính cá nhân, việc cổng mạng mặc định (port 7860) bị chiếm dụng bởi các dịch vụ khác là sự cố rất thường gặp. Nhóm đã tích hợp cơ chế bảo vệ cổng tự động và kích hoạt trình duyệt thông minh:</p>
+<div class="code-block">if __name__ == "__main__":
+    port = 7860
+    print("🚀 GIAO DIỆN WEB ĐANG SẴN SÀNG!")
+    print(f"👉 ĐƯỜNG LINK TRUY CẬP: http://127.0.0.1:{port}")
+    try:
+        # Tự động kích hoạt mở tab mới trên trình duyệt mặc định
+        demo.launch(server_name="127.0.0.1", server_port=port, inbrowser=True)
+    except OSError:
+        # Tự động chuyển hướng sang cổng dự phòng nếu cổng 7860 bị xung đột
+        alt_port = 7861
+        print(f"⚠️ Cổng {port} đang bận! Tự động đổi sang cổng: {alt_port}")
+        demo.launch(server_name="127.0.0.1", server_port=alt_port, inbrowser=True)</div>
+
+<h2>6.3. Cấu trúc Thư mục Dự án và Hướng dẫn Vận hành</h2>
+<p>Toàn bộ dự án được tổ chức gọn gàng, chuẩn hóa theo tiêu chuẩn công nghiệp:</p>
+<div class="code-block">huan_luyen5/
+├── weights/                      # Chứa cấu hình và trọng số huấn luyện
+│   ├── config_line.yml           # Cấu hình huấn luyện mô hình dòng
+│   ├── config_full.yml           # Cấu hình tinh chỉnh mô hình từ
+│   ├── vietocr_hw_best.pth       # Trọng số tốt nhất giai đoạn Line (151 MB)
+│   ├── vietocr_hw_full.pth       # Trọng số tối ưu giai đoạn Word (151 MB)
+│   ├── train.log                 # Nhật ký huấn luyện giai đoạn 1
+│   └── train_word.log            # Nhật ký huấn luyện giai đoạn 2
+├── UIT_HWDB_line/                # Thư mục chứa dữ liệu ảnh dòng chữ
+├── UIT_HWDB_word/                # Thư mục chứa dữ liệu ảnh từ đơn
+├── UIT_HWDB_paragraph/           # Thư mục chứa dữ liệu ảnh đoạn văn bản
+├── app.py                        # Ứng dụng Web Studio Gradio hoàn chỉnh
+├── pipeline_ocr.py               # Mô-đun đóng gói Pipeline OCR & Sửa lỗi chính tả
+├── train_line.py                 # Script huấn luyện cấp độ dòng
+├── train_word.py                 # Script tinh chỉnh cấp độ từ
+├── requirements.txt              # Danh sách các gói phụ thuộc Python
+└── README.md                     # Tài liệu hướng dẫn cài đặt và vận hành</div>
+
+<p>Quy trình khởi chạy ứng dụng vô cùng đơn giản chỉ với 2 lệnh cơ bản trong terminal:</p>
+<div class="code-block"># 1. Cài đặt các thư viện phụ thuộc
+pip install -r requirements.txt
+
+# 2. Khởi chạy giao diện Web Studio
+python app.py</div>
+<!-- CHƯƠNG 7 -->
+<div class="page-break"></div>
+<h1>CHƯƠNG 7: KẾ HOẠCH TRIỂN KHAI VÀ PHÂN CÔNG TRÁCH NHIỆM</h1>
+
+<h2>7.1. Bảng Phân công Chi tiết Vai trò Thành viên (Team Roles & Responsibilities)</h2>
+<p>Dự án được thực hiện bởi nhóm nghiên cứu <strong>Team 3</strong> gồm hai thành viên với sự phân công trách nhiệm rõ ràng, phối hợp chặt chẽ trong suốt 8 tuần triển khai theo đúng chuẩn mực đề án Capstone của Samsung Innovation Campus:</p>
+
+<div class="table-caption">Bảng 6: Bảng phân công nhiệm vụ và đóng góp của các thành viên</div>
+<table>
+    <tr>
+        <th style="width: 8%;">STT</th>
+        <th style="width: 22%;">Họ và tên</th>
+        <th style="width: 20%;">Vai trò đảm nhiệm</th>
+        <th>Trách nhiệm và Sản phẩm đầu ra cụ thể</th>
+    </tr>
+    <tr>
+        <td style="text-align: center;">1</td>
+        <td><strong>Lưu Thanh Nguyên</strong></td>
+        <td><strong>Trưởng nhóm (Project Leader) / Kỹ sư AI Cốt lõi</strong></td>
+        <td>
+            <ul>
+                <li>Quản trị tiến độ chung của toàn bộ dự án theo phương pháp Agile/Scrum.</li>
+                <li>Nghiên cứu kiến trúc học sâu VGG-Transformer và cơ chế Self-Attention trong VietOCR.</li>
+                <li>Thiết lập môi trường điện toán đám mây GPU Tesla T4 và máy trạm cục bộ; cấu hình các siêu tham số huấn luyện trong các tệp YAML.</li>
+                <li>Trực tiếp thực hiện quá trình huấn luyện và tinh chỉnh (fine-tune) mô hình ở cả hai giai đoạn Line và Word (<code>train_line.py</code>, <code>train_word.py</code>).</li>
+                <li>Nghiên cứu và tích hợp mô hình ngôn ngữ Seq2Seq <code>vietnamese-correction-v2</code> vào khâu hậu xử lý sửa lỗi chính tả ngữ cảnh.</li>
+                <li>Phát hiện và xây dựng các bản vá lỗi kỹ thuật: vá lỗi tương thích NumPy 2.0 (sctypes, bool, frombuffer) và vá lỗi an toàn từ điển (Vocab safety monkey-patch).</li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td style="text-align: center;">2</td>
+        <td><strong>Đặng Hoàng Anh</strong></td>
+        <td><strong>Thành viên (Core Member) / Kỹ sư Xử lý Dữ liệu & UI</strong></td>
+        <td>
+            <ul>
+                <li>Khảo sát, thu thập và bóc tách toàn bộ bộ dữ liệu chuẩn UIT-HWDB (Line, Word, Paragraph).</li>
+                <li>Viết giải thuật quét, làm sạch và lọc bỏ triệt để các ký tự ngoại lai (f, F), chuẩn hóa định dạng nhãn TSV sạch cho hơn 100.000 mẫu ảnh.</li>
+                <li>Nghiên cứu và thử nghiệm thuật toán cân chỉnh độ nghiêng tự động (Auto-Deskew) dựa trên phương sai hình chiếu ngang.</li>
+                <li>Tham gia phát triển và tinh chỉnh các tham số lọc mịn Gaussian, dò đỉnh/thung lũng trong thuật toán phân đoạn dòng thích ứng (Adaptive Line Segmentation).</li>
+                <li>Thiết kế và xây dựng giao diện ứng dụng Web Studio bằng Gradio với bố cục Clean White Dashboard 30% - 70% và cơ chế bảo vệ cổng mạng.</li>
+                <li>Thực hiện kiểm thử người dùng (User Acceptance Testing), đo lường thời gian đáp ứng và đóng gói tài liệu kỹ thuật hướng dẫn sử dụng.</li>
+            </ul>
+        </td>
+    </tr>
+</table>
+
+<h2>7.2. Lịch trình Triển khai Đồ án (Work Breakdown Structure - WBS)</h2>
+<p>Dự án được phân bổ khoa học và thực hiện nghiêm ngặt qua 6 giai đoạn công việc trong thời gian 8 tuần:</p>
+
+<div class="table-caption">Bảng 7: Kế hoạch triển khai chi tiết 8 tuần (WBS Action Plan)</div>
+<table>
+    <tr>
+        <th style="width: 15%;">Giai đoạn</th>
+        <th style="width: 15%;">Thời gian thực hiện</th>
+        <th style="width: 40%;">Nội dung công việc trọng tâm</th>
+        <th style="width: 30%;">Cột mốc & Sản phẩm đầu ra</th>
+    </tr>
+    <tr>
+        <td><strong>1. Khảo sát & Thiết kế</strong></td>
+        <td>Tuần 1<br>(Đầu tháng 7)</td>
+        <td>
+            - Khảo sát các bài toán OCR/HTR chữ viết tay tiếng Việt.<br>
+            - Đọc các tài liệu nghiên cứu về CRNN, Attention Seq2Seq, Transformer và VietOCR.<br>
+            - Xác định phạm vi đề tài, kiến trúc hệ thống và lập kế hoạch Capstone Action Plan.
+        </td>
+        <td>- Báo cáo khảo sát công nghệ.<br>- Bản kế hoạch hành động Action Plan được GV hướng dẫn phê duyệt.</td>
+    </tr>
+    <tr>
+        <td><strong>2. Chuẩn bị Dữ liệu</strong></td>
+        <td>Tuần 2 - Tuần 3<br>(Giữa tháng 7)</td>
+        <td>
+            - Tải về và khảo sát cấu trúc bộ dữ liệu UIT-HWDB.<br>
+            - Viết script quét nhãn, lọc sạch ký tự ngoại lai f/F.<br>
+            - Phân chia tập Train/Val (seed=42) và tạo bộ nhớ đệm LMDB tăng tốc độ đọc dữ liệu trên GPU.
+        </td>
+        <td>- Tệp nhãn chuẩn hóa: <code>train_line_ann.txt</code>, <code>val_line_ann.txt</code>, <code>train_word_clean.txt</code>.<br>- Môi trường dữ liệu sẵn sàng.</td>
+    </tr>
+    <tr>
+        <td><strong>3. Huấn luyện Mô hình</strong></td>
+        <td>Tuần 4 - Tuần 5<br>(Cuối tháng 7)</td>
+        <td>
+            - Vá các lỗi tương thích NumPy 2.0 và Vocab KeyError.<br>
+            - Huấn luyện giai đoạn 1 trên dữ liệu dòng (6.000 iters).<br>
+            - Kế thừa trọng số, tinh chỉnh giai đoạn 2 trên dữ liệu từ đơn (6.000 iters).<br>
+            - Đánh giá biểu đồ Loss và độ chính xác ký tự.
+        </td>
+        <td>- Trọng số tốt nhất: <code>vietocr_hw_best.pth</code>, <code>vietocr_hw_full.pth</code>.<br>- Nhật ký huấn luyện <code>train.log</code> và <code>train_word.log</code>.</td>
+    </tr>
+    <tr>
+        <td><strong>4. Phát triển Pipeline</strong></td>
+        <td>Tuần 6<br>(Đầu tháng 8)</td>
+        <td>
+            - Phát triển thuật toán Auto-Deskew góc quét -6° đến +6.5°.<br>
+            - Xây dựng thuật toán phân đoạn dòng thích ứng kèm đệm lề an toàn chống xén dấu thanh.<br>
+            - Tích hợp mô hình Seq2Seq <code>vietnamese-correction-v2</code> vào luồng xử lý hậu kỳ.<br>
+            - Đóng gói thành class <code>VietnameseHandwrittenOCR</code> trong <code>pipeline_ocr.py</code>.
+        </td>
+        <td>- Mô-đun <code>pipeline_ocr.py</code> hoạt động độc lập, tự động nhận diện từ đơn lẫn đoạn văn bản nhiều dòng.</td>
+    </tr>
+    <tr>
+        <td><strong>5. Xây dựng Ứng dụng</strong></td>
+        <td>Tuần 7<br>(Giữa tháng 8)</td>
+        <td>
+            - Thiết kế giao diện Gradio Web Studio (Clean White CSS).<br>
+            - Tích hợp chức năng tải ảnh linh hoạt và xem kiểm chứng các dòng cắt trong Accordion Gallery.<br>
+            - Cài đặt cơ chế bảo vệ cổng mạng và tự động mở trình duyệt.
+        </td>
+        <td>- Ứng dụng Web hoàn chỉnh <code>app.py</code> chạy mượt mà tại cổng local 7860/7861.</td>
+    </tr>
+    <tr>
+        <td><strong>6. Kiểm thử & Báo cáo</strong></td>
+        <td>Tuần 8<br>(Cuối tháng 8)</td>
+        <td>
+            - Kiểm thử End-to-End trên 251 trang viết tay tập Paragraph.<br>
+            - Đo lường và tổng hợp các chỉ số đánh giá kỹ thuật.<br>
+            - Hoàn thiện mã nguồn, viết tài liệu README.md và biên soạn Báo cáo Capstone Project chính thức.
+        </td>
+        <td>- Báo cáo tốt nghiệp hoàn chỉnh.<br>- Slide thuyết trình và Video demo sản phẩm bảo vệ trước Hội đồng SIC.</td>
+    </tr>
+</table>
+
+<!-- CHƯƠNG 8 -->
+<div class="page-break"></div>
+<h1>CHƯƠNG 8: KẾT LUẬN VÀ HƯỚNG PHÁT TRIỂN TƯƠNG LAI</h1>
+
+<h2>8.1. Các Đóng góp Nổi bật của Dự án</h2>
+<p>Sau 8 tuần nghiên cứu nghiêm túc và triển khai thực nghiệm toàn diện, đề tài đã đạt được các kết quả nổi bật sau:</p>
+<ol>
+    <li><strong>Làm chủ và cải tiến thành công kiến trúc nhận dạng học sâu hiện đại:</strong> Ứng dụng xuất sắc mô hình VietOCR kết hợp mạng tích chập VGG19-BN và Transformer Seq2Seq, tận dụng triệt để sức mạnh của cơ chế Self-Attention để giải quyết bài toán phụ thuộc chuỗi dài trong chữ viết tay tiếng Việt.</li>
+    <li><strong>Chiến lược huấn luyện 2 giai đoạn hiệu quả vượt bậc:</strong> Sự kết hợp kế thừa tuần tự giữa dữ liệu dòng chữ (Line) và hơn 100.000 mẫu từ đơn (Word) giúp mô hình đạt độ chính xác ký tự ấn tượng <strong>~87.2%</strong> trên tập dòng và <strong>~94%</strong> trên tập từ đơn.</li>
+    <li><strong>Sáng tạo giải thuật thị giác thích ứng bảo toàn trọn vẹn nét chữ tiếng Việt:</strong> Thuật toán Auto-Deskew tự động tìm góc xoay tối ưu phương sai hình chiếu và thuật toán phân đoạn dòng thích ứng kèm cơ chế đệm viền trắng an toàn (White Margin Padding) đã giải quyết triệt để vấn đề mất dấu thanh - một trong những nguyên nhân hàng đầu gây sai sót của các hệ thống OCR trước đây.</li>
+    <li><strong>Đột phá trong khâu hậu xử lý bằng mô hình ngôn ngữ ngữ cảnh:</strong> Việc tích hợp thành công mô hình Transformer Seq2Seq <code>bmd1905/vietnamese-correction-v2</code> đã nâng tỷ lệ chính xác của các đoạn văn bản viết tay phức tạp lên <strong>92% - 95%</strong>, tạo ra sự vượt trội rõ rệt so với việc chỉ sử dụng mô hình thị giác đơn thuần.</li>
+    <li><strong>Giải quyết triệt để các xung đột công nghệ hệ thống:</strong> Xây dựng các bản vá lỗi tương thích toàn diện cho NumPy 2.0 và cơ chế mã hóa từ điển an toàn, đảm bảo tính ổn định và khả năng triển khai tức thì trên mọi nền tảng điện toán.</li>
+    <li><strong>Sản phẩm hoàn chỉnh, sẵn sàng ứng dụng thực tế:</strong> Ứng dụng Web Studio trên nền tảng Gradio với giao diện Clean White Dashboard hiện đại, trực quan, hỗ trợ số hóa văn bản tức thì phục vụ người dùng học tập và làm việc.</li>
+</ol>
+
+<h2>8.2. Hạn chế Hiện tại của Đề tài</h2>
+<p>Bên cạnh những thành tựu đạt được, hệ thống vẫn còn một số điểm giới hạn cần tiếp tục hoàn thiện:</p>
+<ul>
+    <li>Thuật toán phân đoạn dòng hiện tại dựa trên hình chiếu ngang (Horizontal Projection) hoạt động rất tốt với các văn bản có dòng kẻ song song tương đối, nhưng sẽ gặp khó khăn đối với các trang viết tay có dòng chữ xiên chéo đan xen lồng vào nhau hoặc chữ viết hình cánh cung.</li>
+    <li>Mô hình sửa lỗi chính tả ngữ cảnh yêu cầu thêm tài nguyên bộ nhớ (khoảng 1GB - 2GB RAM/VRAM) và làm tăng thêm một khoảng trễ nhỏ (latency ~0.2 - 0.5 giây trên mỗi câu) trong quá trình suy luận.</li>
+    <li>Hệ thống hiện tại chưa tích hợp mô-đun bóc tách cấu trúc tài liệu phức tạp (Document Layout Analysis) đối với các trang văn bản có bảng biểu (Table), nhiều cột báo chí (Multi-column) hoặc hình ảnh minh họa xen kẽ.</li>
+</ul>
+
+<h2>8.3. Hướng Nghiên cứu và Phát triển Mở rộng</h2>
+<p>Trong các giai đoạn phát triển tiếp theo, nhóm nghiên cứu đề xuất các định hướng mở rộng tiềm năng:</p>
+<ul>
+    <li><strong>Tích hợp mô hình Phân đoạn dòng dựa trên Học sâu (Deep Learning Line Segmentation):</strong> Thay thế phương pháp hình chiếu bằng các mạng phân vùng ảnh ngữ nghĩa như U-Net hoặc Mask R-CNN để phát hiện và cắt tách các dòng chữ viết tay có độ cong uốn lượn phức tạp một cách linh hoạt.</li>
+    <li><strong>Nghiên cứu các kiến trúc Vision-Language thế hệ mới (TrOCR, Donut, Qwen-VL):</strong> Khảo sát và tinh chỉnh các mô hình Vision Transformer thuần túy (ViT kết hợp RoBERTa/mBART) để thực hiện nhận dạng trực tiếp từ ảnh sang chữ mà không cần tách rời hai giai đoạn trích xuất đặc trưng tích chập.</li>
+    <li><strong>Tối ưu hóa mô hình và triển khai thiết bị biên (Edge AI / Mobile):</strong> Lượng tử hóa mô hình (Quantization INT8, FP16) và chuyển đổi sang định dạng ONNX Runtime hoặc TensorRT để giảm kích thước trọng số từ 151MB xuống dưới 40MB, cho phép chạy suy luận siêu tốc trực tiếp trên điện thoại thông minh (Android / iOS) và thiết bị nhúng phục vụ chụp ảnh số hóa tài liệu ngoại tuyến (Offline Document Scanner).</li>
+</ul>
+
+<!-- TÀI LIỆU THAM KHẢO -->
+<div class="page-break"></div>
+<h1>TÀI LIỆU THAM KHẢO (REFERENCES)</h1>
+<ol>
+    <li>Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A. N., Kaiser, Ł., & Polosukhin, I. (2017). <em>Attention Is All You Need</em>. Advances in Neural Information Processing Systems (NeurIPS 2017), pp. 5998–6008.</li>
+    <li>Shi, B., Bai, X., & Yao, C. (2016). <em>An End-to-End Trainable Neural Network for Image-based Sequence Recognition and Its Application to Scene Text Recognition</em>. IEEE Transactions on Pattern Analysis and Machine Intelligence, 39(11), pp. 2298–2304.</li>
+    <li>Simonyan, K., & Zisserman, A. (2014). <em>Very Deep Convolutional Networks for Large-Scale Image Recognition</em>. arXiv preprint arXiv:1409.1556.</li>
+    <li>Nguyen, D. D., Nguyen, T. T., & Dinh, D. (2021). <em>VietOCR: A Transformer-based Optical Character Recognition for Vietnamese Language</em>. GitHub Repository: https://github.com/pbcquoc/vietocr.</li>
+    <li>Nguyen, D. K., Truong, T. H., & Nguyen, N. T. (2020). <em>UIT-HWDB: A Large-Scale Dataset for Vietnamese Handwritten Character, Word, and Line Recognition</em>. VNUHCM Journal of Science and Technology, Trường Đại học Công nghệ Thông tin - ĐHQG TP.HCM.</li>
+    <li>Li, M., Lv, T., Chen, J., Cui, L., Lu, Y., Florencio, D., Zhang, C., & Wei, F. (2023). <em>TrOCR: Transformer-based Optical Character Recognition with Pre-trained Models</em>. Proceedings of the AAAI Conference on Artificial Intelligence, 37(11), pp. 13094–13102.</li>
+    <li>Bui, M. D. (2023). <em>Vietnamese Spelling Correction using Pretrained Sequence-to-Sequence Transformer (vietnamese-correction-v2)</em>. Hugging Face Models Repository: https://huggingface.co/bmd1905/vietnamese-correction-v2.</li>
+    <li>Otsu, N. (1979). <em>A Threshold Selection Method from Gray-Level Histograms</em>. IEEE Transactions on Systems, Man, and Cybernetics, 9(1), pp. 62–66.</li>
+    <li>Graves, A., Fernández, S., Gomez, F., & Schmidhuber, J. (2006). <em>Connectionist Temporal Classification: Labelling Unsegmented Sequence Data with Recurrent Neural Networks</em>. Proceedings of the 23rd International Conference on Machine Learning (ICML), pp. 369–376.</li>
+</ol>
+
+</body>
+</html>

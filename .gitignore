@@ -1,0 +1,40 @@
+# ==============================================================================
+# GITIGNORE - DỰ ÁN NHẬN DẠNG CHỮ VIẾT TAY TIẾNG VIỆT (SIC AI)
+# ==============================================================================
+
+# 1. Python Cache & Môi trường ảo
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.env
+.venv
+env/
+venv/
+ENV/
+
+# 2. IDE & Hệ điều hành
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+~$*
+*.tmp
+
+# 3. Tập dữ liệu ảnh (Dung lượng hàng GB - Không đẩy lên Git)
+UIT_HWDB_line/
+UIT_HWDB_paragraph/
+UIT_HWDB_word/
+*.zip
+train_data/
+valid_data/
+
+# 4. Trọng số mô hình (.pth) vượt quá giới hạn 100MB của GitHub
+# (Nên lưu trên Google Drive / GitHub Releases và để link tải trong README)
+weights/*.pth
+
+# 5. File nhật ký huấn luyện lớn
+*.log
+weights/*.log
